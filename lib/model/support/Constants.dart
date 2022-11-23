@@ -16,6 +16,14 @@ class Constants {
   // states
   static final String STATE_CLUB = "club";
 
+  //cart
+  static final String REQUEST_ADD_PRODUCT_CART="/cart/add";
+  static final String REQUEST_GET_PRODUCT_CART="/cart/showAll";
+  static final String REQUEST_REMOVE_PRODUCT_CART="/cart/remove";
+
+ static final String REQUEST_PURCHASE_PRODUCT="/purchase/p";
+ static final String REQUEST_GET_PURCHASES="/purchase/purchases";
+
   // responses
   static final String RESPONSE_ERROR_MAIL_USER_ALREADY_EXISTS = "ERROR_MAIL_USER_ALREADY_EXISTS";
 

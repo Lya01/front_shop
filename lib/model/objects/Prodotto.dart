@@ -21,12 +21,23 @@ class Prodotto {
   }
 
   Map<String, dynamic> toJson() => {
-    'id_prodotto': id_prodotto,
+    'idProdotto': id_prodotto,
     'nome': nome,
     'descrizione': descrizione,
     'image': image,
     'prezzo':prezzo,
     'disponibilita':disponibilita
   };
+
+  String toString(){
+    return "prodotto "+this.disponibilita.toString();
+  }
+
+  int getId(){return id_prodotto;}
+  String getNome(){return nome;}
+  String getDescrizione(){return descrizione;}
+  String getImage(){return image;}
+  double getPrezzo(){return prezzo;}
+  int getDisponibilita(){return disponibilita;}
 
 }

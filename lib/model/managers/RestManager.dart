@@ -28,7 +28,7 @@ print("uri: ");
     while ( true ) {
       try {
         //var response;
-        print("response: "+response.toString());
+    //    print("response: "+response.toString());
         // setting content type
         String contentType="application/json;charset=utf-8";
         dynamic formattedBody;
@@ -52,6 +52,7 @@ print("uri: ");
           //print("fine formattazione2");
         }
         //making request
+        print("sono prima dello switch");
         switch ( method ) {
           case "post":
             print("Caso post");
@@ -60,24 +61,27 @@ print("uri: ");
               headers: headers,
               body: formattedBody,
             );
+            print("response:");
             print(response.body.toString());
             break;
 
           case "get":
-            print("CASO GET");
+            //print("CASO GET");
             //print(headers.toString());
             response = await http.get(
               uri,//qui viene invocato l'uri, su viene creato
               headers: headers,
             );
-            print(response.toString());
+            //print(response.toString());
             break;
 
           case "put":
+            print("CASO Put");
             response = await http.put(
               uri,
               headers: headers,
             );
+            print(response);
             break;
           case "delete":
             response = await http.delete(
@@ -97,44 +101,50 @@ print("uri: ");
           errorOccurred = true;
         }
         print(response.toString());
-        print("PorcodioERRORE");
+        print("sono nel catch di rest");
         await Future.delayed(const Duration(seconds: 5), () => null); // not the best solution
       }
     }
   }
 
   Future<String> makePostRequest(String serverAddress, String servicePath, dynamic value, {TypeHeader type = TypeHeader.json}) async {
-    print("MakeGetRequest");
+    print("MakePostRequest");
     print(value.toString());//mi stampa solo a b e non c d pure
     return _makeRequest(serverAddress, servicePath, "post", type, body: value);
   }
 
-   /*
-   Future<String> makePostRequest(String serverAddress, String servicePath, dynamic value, {TypeHeader type = TypeHeader.json}) async {
+
+   /*Future<String> makePostRequest(String serverAddress, String servicePath, dynamic value, {TypeHeader type = TypeHeader.json}) async {
    print("Make POstRequest");
+   print("parametri:");
+   print(serverAddress);
+   print(servicePath);
+   print(value);
+   print(type);
    var url=Uri.http(serverAddress,servicePath,value);
    print(url);
    var headers=<String,String>{'Content-Type':'application/json; charset=UTF-8',};
    var response=await http.post(url,body: value);
    print(response.body.toString());
    return response.body.toString();
-   }
-*/
+   }*/
+
   Future<String> makeGetRequest(String serverAddress, String servicePath,  Map<String, String> value) async {
     return _makeRequest(serverAddress, servicePath, "get", TypeHeader.json, value: value);
   }
 
-/*
-   Future<String> makeGetRequest(String serverAddress, String servicePath,  Map<String, String> value) async
-   {print("makeGetRequest");
-     var url=Uri.http(serverAddress, servicePath, value);
-     print(url.toString());
-    var response=await http.get(url);
-    print(response.body.toString());
-    return response.body.toString();
-   }*/
+   Future<String> makePostRequest2(String serverAddress, String servicePath, {dynamic body,Map<String, String>? params, TypeHeader type = TypeHeader.json}) async {
+     print("makePostRequestCart");
+     //print("body: "+body.toString());
+     return _makeRequest(serverAddress, servicePath, "post", type, body: body,value: params);
+   }
 
   Future<String> makePutRequest(String serverAddress, String servicePath,dynamic value, dynamic body /*Map<String, String>? value,TypeHeader? type*/) async {
+    print("makePutRequest");
+    print("value:");
+    print(value.toString());
+    print("body: ");
+    print(body.toString());
     return _makeRequest(serverAddress, servicePath, "put", TypeHeader.json,value:value,body:body);
   }
 

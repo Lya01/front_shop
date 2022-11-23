@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 List<Prodotto>? _products;
-bool _view=false;
+//bool _view=false;
 
 
   @override
@@ -44,7 +44,7 @@ bool _view=false;
     //List<Prodotto>? result;
     Model.sharedInstance.searchProduct("").then((result){
       setState((){
-        _view=true;
+        var _view=true;
         _products=result;
       });
     });
@@ -56,7 +56,7 @@ bool _view=false;
           itemCount: _products!.length,
           itemBuilder: (context,index){
             return ProductCard(
-              product: _products![index],
+              product: _products![index], operazione: '+',
             );
           },
         ),

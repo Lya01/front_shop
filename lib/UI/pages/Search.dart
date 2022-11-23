@@ -82,7 +82,7 @@ class _SearchState extends State<Search> {
           itemCount: _products!.length,
           itemBuilder: (context, index) {
             return ProductCard(
-              product: _products![index],
+              product: _products![index], operazione: '+',
             );
           },
         ),

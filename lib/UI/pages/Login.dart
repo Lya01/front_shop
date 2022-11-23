@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:front_shop/UI/widgets/CircularIconButton.dart';
 import 'package:front_shop/UI/widgets/InputField.dart';
 import 'package:front_shop/model/Model.dart';
+import 'package:front_shop/model/objects/CurrentCustomer.dart';
 import 'package:front_shop/model/objects/Customer.dart';
 
 class Login extends StatefulWidget {
@@ -92,5 +93,8 @@ class _LoginState extends State<Login> {
       "email": _emailFiledController.text,
       "password": _passwordFiledController.text
     });
+    CurrentCustomer.setCustomer(c!);
+   // print("sono in Login pagina");
+    //print(c);
   }
 }

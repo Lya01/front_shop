@@ -1,4 +1,3 @@
-import 'package:front_shop/model/objects/Order.dart';
 
 class Customer {
   int? id;
@@ -6,11 +5,11 @@ class Customer {
   String lastName;
   String email;
   String? password;
-  Set<Order>? orders;
 
 
 
-  Customer({ this.id,  required this.firstName, required this.lastName, required this.email,this.password, this.orders});
+
+  Customer({ this.id,  required this.firstName, required this.lastName, required this.email,this.password});
 
 
   factory Customer.fromJson(Map<String, dynamic> json) {
@@ -19,8 +18,7 @@ class Customer {
       firstName: json['firstName'],
       lastName: json['lastName'],
       email: json['email'],
-      password: json['password'],
-      orders: json['orders']
+      password: json['password']
     );
   }
 
@@ -29,8 +27,7 @@ class Customer {
     'firstName': firstName,
     'lastName': lastName,
     'email': email,
-    'password': password,
-    'orders':orders
+    'password': password
   };
 
   @override

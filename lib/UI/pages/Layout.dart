@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:front_shop/UI/pages/Cart.dart';
 import 'package:front_shop/UI/pages/Home.dart';
 import 'package:front_shop/UI/pages/Login.dart';
 import 'package:front_shop/UI/pages/Search.dart';
@@ -28,7 +29,7 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepOrangeAccent.shade200,
@@ -44,6 +45,7 @@ class _LayoutState extends State<Layout> {
               Tab(text:"search", icon: Icon(Icons.search_rounded)),
               Tab(text:"user", icon: Icon(Icons.person_rounded)),
               Tab(text:"login", icon: Icon(Icons.person_rounded)),
+              Tab(text:"cart", icon: Icon(Icons.shopping_cart)),
             ],
           ),
         ),
@@ -52,8 +54,8 @@ class _LayoutState extends State<Layout> {
             Home(),
             Search(),
             UserRegistration(),
-            Login()
-
+            Login(),
+            Cart()
           ],
         ),
       ),
